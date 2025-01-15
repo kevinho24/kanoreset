@@ -1,34 +1,41 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Recetas Deliciosas</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
-  <swiper-container>
-    <swiper-slide>
-      <img src="/assets/images/img1.jpg">
-      <ion-icon name="cafe-outline"></ion-icon>
-      <p>con nosotros encontraras las mejores recetas</p>
+<ion-content>
+  <swiper-container class="swiper-container">
+    
+    <swiper-slide class="slide slide-1">
+      <ion-icon name="restaurant-outline" class="slide-icon"></ion-icon>
+      <h2 class="slide-title">Las Mejores Recetas</h2>
+      <p class="slide-text">Encuentra platos increíbles para cualquier ocasión.</p>
+      <img src="/assets/images/img2.jpg" class="slide-image" />
     </swiper-slide>
 
-    <swiper-slide> 
-      <h1 >Hola slide 2</h1>
-      <ion-icon name="battery-full-outline"></ion-icon>
-      <p>Hola soy el slide dos de la libreria swiper</p>
+    
+    <swiper-slide class="slide slide-2">
+      <ion-icon name="flash-outline" class="slide-icon"></ion-icon>
+      <h2 class="slide-title">Cocina Fácil</h2>
+      <p class="slide-text">Simplifica tu tiempo en la cocina con nuestra guía paso a paso.</p>
+      <img src="/assets/images/img3.jpg" class="slide-image" />
     </swiper-slide>
-    <swiper-slide>
-      <h1 >Hola slide 3</h1>
-      <ion-icon name="calendar-number-outline"></ion-icon>
-      <p>Hola soy el slide tres de la libreria swiper</p>
+
+   
+    <swiper-slide class="slide slide-3">
+      <ion-icon name="basket-outline" class="slide-icon"></ion-icon>
+      <h2 class="slide-title">Ingredientes al Instante</h2>
+      <p class="slide-text">Convierte los ingredientes que tienes en recetas deliciosas.</p>
+      <img src="/assets/images/img4.jpg" class="slide-image" />
     </swiper-slide>
-    <swiper-slide>
-      <h1 >Hola slide 4</h1>
-      <ion-icon name="calendar-number-outline"></ion-icon>
-      <p>Hola soy el slide cuatro de la libreria swiper</p>
+
+   
+    <swiper-slide class="slide slide-4">
+      <ion-icon name="list-outline" class="slide-icon"></ion-icon>
+      <h2 class="slide-title">Organiza tu Cocina</h2>
+      <p class="slide-text">Crea listas de compras inteligentes para tus recetas favoritas.</p>
+      <img src="/assets/images/img6.jpg" class="slide-image" />
     </swiper-slide>
   </swiper-container>
 </ion-content>
-
