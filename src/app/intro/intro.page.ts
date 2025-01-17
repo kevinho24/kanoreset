@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { Storage } from '@ionic/storage-angular';
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.page.html',
@@ -9,13 +9,17 @@ import { Router } from '@angular/router';
 })
 export class IntroPage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private storage: Storage
+  ) { }
 
   ngOnInit() {
   }
 
   finish() {
     console.log('Navigating to Home');
+    this.storage.set('vilaIntro', true);
     this.router.navigateByUrl('/home');
   }
   
