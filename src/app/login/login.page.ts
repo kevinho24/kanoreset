@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { AuthService } from '../services/auth.service';
+import { NavController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -10,8 +12,6 @@ import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
   errorMessage: any;
-
-  
   formErrors = {
     email: [
       { type: 'required', message: 'El correo es obligatorio' },
@@ -23,7 +23,12 @@ export class LoginPage implements OnInit {
     ],
   };
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder, 
+    private authService: AuthService,
+    private nathCtrl: NavController,
+    private storage: Storage
+  ) {
     this.loginForm = this.formBuilder.group({
       
       email: new FormControl('', Validators.compose([
@@ -41,13 +46,15 @@ export class LoginPage implements OnInit {
   ngOnInit() {}
 
   loginUser(credentials: any) {
-    if (this.loginForm.valid) {
-      console.log('Formulario enviado:', credentials);
-      
-    } else {
-      console.error('Formulario inválido');
-    }
+    this.authService.login(credentials).then(res => {
+      console.log(res);
+      this.errorMessage= '';
+      this.storage.set('isUserLoggedIn', true);
+      this.nathCtrl.navigateForward('/home');
+    }).catch(err =>{
+      console.log(err);
+      this.errorMessage = err;
+    });
   }
-  
-}
 
+  }
