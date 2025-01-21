@@ -1,0 +1,79 @@
+ion-content {
+    --background: linear-gradient(to bottom, #ff6f00, #ff9f00); /* Fondo degradado */
+    padding: 20px;
+}
+
+ion-item {
+    --background: #ffffff; /* Fondo blanco para los campos */
+    --border-color: #000000; /* Bordes negros */
+    --border-width: 2px; /* Grosor del borde */
+    --border-radius: 10px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Espaciado entre campos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+ion-item:focus-within {
+    transform: scale(1.02); /* Efecto de escala al interactuar */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Incremento de sombra */
+}
+
+ion-input {
+    --color: #000000; /* Color del texto */
+    --placeholder-color: #777777; /* Color de los placeholders */
+    --padding-start: 10px; /* Espaciado interno */
+    font-size: 16px;
+}
+
+ion-label[color='danger'] {
+    font-size: 12px; /* Tamaño del texto de error */
+    margin-top: -10px;
+    margin-bottom: 10px;
+    color: #ff0000; /* Color rojo para los errores */
+}
+
+form {
+    max-width: 400px; /* Limitar el ancho del formulario */
+    margin: 0 auto; /* Centrar el formulario */
+}
+
+ion-avatar {
+    width: 80px;
+    height: 80px;
+    margin: 20px auto;
+    border: 2px solid #000000; /* Bordes negros */
+    border-radius: 50%;
+    overflow: hidden; /* Ajustar la imagen al avatar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+ion-button {
+    --background: #ff6f00; /* Color del botón */
+    --border-radius: 8px; /* Bordes redondeados */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
+    --border-color: #000000; /* Bordes negros */
+    --border-width: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+ion-button:hover {
+    --background: #ff9f00; /* Color más claro al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+ion-button:focus {
+    outline: 2px solid #000000; /* Añadir borde de enfoque */
+    outline-offset: 2px;
+}
+
+ion-button:active {
+    transform: translateY(1px); /* Efecto de presionado */
+}
+
+ion-button:disabled {
+    --background: #cccccc; /* Color para el estado deshabilitado */
+    --box-shadow: none; /* Sin sombra */
+    opacity: 0.7;
+}
