@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { register } from 'swiper/element';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,7 @@ export class RegisterPage implements OnInit {
     username: [{ type: 'required', message: 'El usuario es obligatorio' }],
     password: [
       { type: 'required', message: 'La contraseña es obligatoria' },
-      { type: 'minlength', message: 'La contraseña debe tener al menos 6 caracteres' },
+      { type: 'minlength', message: 'La contraseña debe tener al menos 8S caracteres' },
     ],
     passwordConfirmation: [
       { type: 'required', message: 'Debes confirmar tu contraseña' },
@@ -45,8 +46,9 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {}
 
-  registerUser(credentials: any) {
-    console.log('Datos de registro:', credentials);
+
+  registerUser(registerData: any) {
+    console.log(registerData,'Datos de registro:');
   }
 
   private matchPasswords(group: FormGroup) {
