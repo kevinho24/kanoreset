@@ -46,7 +46,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {}
 
   loginUser(credentials: any) {
-    this.authService.login(credentials).then(res => {
+  this.authService.login(credentials).then(res => {
       console.log(res);
       this.errorMessage= '';
       this.storage.set('isUserLoggedIn', true);
@@ -54,7 +54,7 @@ export class LoginPage implements OnInit {
     }).catch(err =>{
       console.log(err);
       this.errorMessage = err;
-    });
+    })
   }
 
   }
