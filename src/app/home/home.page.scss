@@ -1,0 +1,80 @@
+/* General styling for ion-content */
+ion-content {
+    --background: #f7f7f7;
+    padding: 10px;
+  }
+  
+  /* Styling for the ion-toolbar */
+  ion-toolbar {
+    --background: #ff6f00; /* Naranja brillante */
+    --color: #ffffff; /* Blanco */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Styling for the ion-card */
+  ion-card {
+    margin: 10px 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff; /* Fondo blanco */
+  }
+  
+  /* Image inside the card */
+  .image-post {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    object-fit: cover;
+    max-height: 200px; /* Limita el tamaño máximo de la imagen */
+    margin: 0 auto; /* Centra la imagen */
+    display: block; /* Asegura que se comporte como un bloque */
+  }
+  
+  /* Avatar styling */
+  .user-avatar {
+    display: inline-block;
+    margin-right: 10px;
+    width: 30px; /* Ajuste del ancho del avatar */
+    height: 30px; /* Ajuste de la altura del avatar */
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ff6f00; /* Naranja para resaltar */
+  }
+  
+  .user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Card subtitle styling */
+  ion-card-subtitle {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #333333; /* Gris oscuro */
+  }
+  
+  /* Card header styling */
+  ion-card-header {
+    padding: 10px;
+    font-weight: bold;
+    color: #000; /* Negro */
+  }
+  
+  /* Card content styling */
+  ion-card-content {
+    padding: 10px;
+    color: #555555; /* Gris más claro */
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  /* Hover effect for the card */
+  ion-card:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  }
+  
