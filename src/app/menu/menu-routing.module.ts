@@ -12,7 +12,12 @@ const routes: Routes = [
         path: 'home',
         loadChildren:() =>
           import('../home/home.module').then(m => m.HomePageModule)
-      }
+      },
+      {
+        path: 'account',
+        loadChildren: () => 
+          import('../account/account.module').then( m => m.AccountPageModule)
+      },
     ]
   }
 ];

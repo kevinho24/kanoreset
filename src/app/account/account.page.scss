@@ -1,0 +1,49 @@
+ion-header {
+    ion-toolbar {
+      background-color: #F9A825; // Amarillo/naranja cálido para la barra superior
+      color: #FFFFFF; // Blanco para el texto
+      font-weight: bold;
+    }
+  }
+  
+  ion-content {
+    --background: #FFF8E1; // Fondo cálido y suave en tono crema
+  
+    ion-title {
+      display: block;
+      text-align: center;
+      font-size: 1.8rem;
+      color: #BF360C; // Naranja oscuro para destacar
+      margin-top: 1.5rem;
+      font-weight: bold;
+    }
+  
+    .image-post {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: block;
+      margin: 1.5rem auto;
+      border: 3px solid #F57C00; // Borde naranja vibrante
+    }
+  
+    p {
+      text-align: center;
+      font-size: 1rem;
+      margin: 0.7rem;
+      color: #6D4C41; // Marrón cálido para el texto
+  
+      &:nth-child(3) {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: #D84315; // Naranja más intenso
+      }
+  
+      &:nth-child(4),
+      &:nth-child(5) {
+        font-style: italic;
+        color: #8D6E63; // Marrón claro para textos secundarios
+      }
+    }
+  }
+  

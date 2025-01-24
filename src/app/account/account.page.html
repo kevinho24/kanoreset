@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-title>{{user_data.name}} {{user_data.last_name}}</ion-title>
+  <img src="{{user_data.image ? user_data.image : 'assets/images/default-avatar.jpeg'}}" class="image-post" />
+  <p>Usuario: {{user_data.username}}</p>
+  <p>Seguidores: {{user_data.followed_users.length}}</p>
+  <p>Siguiendo: {{user_data.following_users.length}}</p>
+</ion-content>
