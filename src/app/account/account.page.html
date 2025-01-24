@@ -8,7 +8,9 @@
 
 <ion-content>
   <ion-title>{{user_data.name}} {{user_data.last_name}}</ion-title>
-  <img src="{{user_data.image ? user_data.image : 'assets/images/default-avatar.jpeg'}}" class="image-post" />
+  <ion-avatar (click)="takePhoto()">
+    <img [src]="user_data.image ? user_data.image : 'assets/images/default-avatar.jpeg'"/>
+  </ion-avatar>
   <p>Usuario: {{user_data.username}}</p>
   <p>Seguidores: {{user_data.followed_users.length}}</p>
   <p>Siguiendo: {{user_data.following_users.length}}</p>

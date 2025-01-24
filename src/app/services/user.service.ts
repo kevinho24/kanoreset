@@ -29,4 +29,24 @@ export class UserService {
       );
     });
   }
-}
+
+  updateUser(user:any){
+    const user_params = {
+      user: user
+    }
+    return new Promise((accept, reject) => {
+      this.http.post(`${this.urlServer}/update/${user.id}`, user_params, this.httpHeaders ).subscribe(
+        (data: any)=>{
+          accept(data);
+        },
+        (error) => {
+          console.log(error, 'error');
+          if (error.status == 500) {
+            reject("Error Por favor intente mas tarde");
+          }else{
+            reject("Error al actualizar el usuario");
+          }
+        }
+      )  
+  });
+}}
