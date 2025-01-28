@@ -6,14 +6,14 @@
 
 <ion-content>
   <form [formGroup]="addPostForm" (ngSubmit)="addPost(addPostForm.value)">
-    <!-- Imagen del post -->
+    
     <div (click)="uploadPhone()">
       <img [src]="post_image ? post_image : '/assets/images/place_holder.jpeg'" />
       <p *ngIf="!post_image">Haz click para subir una imagen</p>
     </div>
     
 
-    <!-- Validadores en descripción -->
+    
     <ion-item>
       <ion-textarea 
         label="Descripcion del post" 
@@ -29,7 +29,7 @@
       </ion-note>
     </ion-item>
 
-    <!-- Botón de publicar -->
+   
     <ion-footer>
       <ion-button 
         type="submit" 

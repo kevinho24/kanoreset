@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
+  [x: string]: any;
   urlServer = 'http://51.79.26.171';
   //urlServer = 'http://localhost:3000';
   httpHeaders = { headers: new HttpHeaders({"Content-Type": "application/json"})};
@@ -49,4 +50,10 @@ export class UserService {
         }
       )  
   });
-}}
+}
+lisUsers(page: number, perPage: number, query: string = ''){
+  const url = `${this.urlServer}/list_users?page=${page}&per_page=${perPage}&query=${query}`;
+  return this.http.get(url).toPromise();
+}
+
+}

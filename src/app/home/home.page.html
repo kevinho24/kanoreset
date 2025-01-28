@@ -24,6 +24,15 @@
       </ion-card-content>
     </ion-card>
   </ion-list>
+
+  <ion-infinite-scroll threshold="100px" 
+  (ionInfinite)="loadPosts($event)" 
+  *ngIf="hasMore">
+  <ion-infinite-scroll-content 
+  loadingSpinner="bubbles" 
+  loadingText="Cargando mas publicaciones..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="addPost()">
       <ion-icon name="add"></ion-icon>
