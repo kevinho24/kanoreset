@@ -30,11 +30,7 @@ const routes: Routes = [
     path: 'add-post-modal',
     loadChildren: () => import('./add-post-modal/add-post-modal.module').then( m => m.AddPostModalPageModule)
   },
-  {
-    path: 'search-ussers',
-    loadChildren: () => import('./search-users/search-ussers.module').then( m => m.SearchUssersPageModule)
-  },
-
+ 
 ];
 
 @NgModule({

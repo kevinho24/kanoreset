@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Usuarios</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-toolbar>
+    <ion-searchbar 
+    placeholder="Buscar usuarios..."
+    (ionInput)="searchUsers($event)"></ion-searchbar>
+  </ion-toolbar>
+  <ion-list>
+    <ion-item *ngFor="let user of users">
+      <ion-avatar slot="start">
+        <img [src]="user.image || 'assets/images/default-avatar.jpeg'">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ user.name }}  {{ user.last_name }}</h2>
+      </ion-label>
+      <ion-button slot="end" (click)="toogleFollow(user)">
+        <ion-icon [name]="user.is_folloeing ? 'heart-dislike-outline' : 'heart-outline'"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
