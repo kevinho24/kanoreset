@@ -22,9 +22,11 @@ export class MenuPage implements OnInit {
   closeMenu() {
     this.menuCtrl.close();
   }
-  log_out(){
-    this.storage.remove("isUserLoggedIn");
-    this.navCtrl.navigateRoot("/login");
+  log_out() {
+    this.storage.remove('isUserLoggedIn'); 
+    this.storage.remove('user'); 
+    this.navCtrl.navigateRoot('/login'); 
   }
+  
 
 }

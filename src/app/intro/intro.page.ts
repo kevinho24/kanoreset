@@ -19,8 +19,9 @@ export class IntroPage implements OnInit {
 
   finish() {
     console.log('Finish');
-    this.storage.set('vilaIntro', true);
-    this.router.navigateByUrl('/menu/home');
+    this.storage.set('introShown', true); 
+    this.router.navigateByUrl('/menu/home'); 
   }
+  
   
 }

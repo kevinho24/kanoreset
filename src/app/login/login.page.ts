@@ -22,6 +22,7 @@ export class LoginPage implements OnInit {
       { type: 'minlength', message: 'La contraseña debe tener al menos 8 caracteres' },
     ],
   };
+  navCtrl: any;
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -43,19 +44,35 @@ export class LoginPage implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loginForm.reset(); 
+    this.errorMessage = ''; 
+  }
+  
 
-  loginUser(credentials: any) {
-  this.authService.login(credentials).then((res: any) => {
+  async loginUser(credentials: any) {
+    try {
+      const res: any = await this.authService.login(credentials); 
       console.log(res);
-      this.errorMessage= '';
-      this.storage.set('user', res.user);
-      this.storage.set('isUserLoggedIn', true);
-      this.nathCtrl.navigateForward('/menu/home');
-    }).catch(err =>{
+  
+      await this.storage.set('user', res.user);
+      await this.storage.set('isUserLoggedIn', true);
+  
+      const introShown = await this.storage.get('introShown'); 
+  
+      if (!introShown) {
+        this.nathCtrl.navigateForward('/intro'); 
+      } else {
+        this.nathCtrl.navigateForward('/menu/home'); 
+      }
+  
+      this.errorMessage = ''; 
+    } catch (err) {
       console.log(err);
-      this.errorMessage = err;
-    })
+      this.errorMessage = err; 
+    }
   }
+  
+}
 
-  }
+  

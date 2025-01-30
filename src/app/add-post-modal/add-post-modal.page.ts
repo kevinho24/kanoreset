@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { PostService } from '../services/post.service';
 import { Storage } from '@ionic/storage-angular';
 import { ModalController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-post-modal',
@@ -14,51 +15,35 @@ import { ModalController } from '@ionic/angular';
   standalone: false,
 })
 export class AddPostModalPage implements OnInit {
-  post_image: any; 
-  addPostForm: FormGroup; 
+  post_image: any;
+  addPostForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private postService: PostService,
     private storage: Storage,
-    private modalController: ModalController
+    private modalController: ModalController,
+    public alertController: AlertController
   ) {
-    
     this.addPostForm = this.formBuilder.group({
       description: new FormControl('', [
-        Validators.required, // 
-        Validators.minLength(5), 
+        Validators.required,
+        Validators.minLength(5),
       ]),
-      image: new FormControl('', Validators.required), 
+      image: new FormControl('', Validators.required),
     });
   }
 
   ngOnInit() {}
 
-  
-  async uploadPhone(){
-    console.log('Upload Photo');
-    const uploadPhoto = await Camera.getPhoto({
-      resultType: CameraResultType.DataUrl,
-      source: CameraSource.Photos,
-      quality: 100
-    });
-    this.post_image = uploadPhoto.dataUrl;
-    this.addPostForm.patchValue({
-      image: this.post_image
-    });
+  async uploadPhone() {
+    await this.presentPhotoOptions(); 
   }
-  
 
-  
   async addPost(post_data: any) {
     console.log('Add Post');
     console.log(post_data);
-
-   
     const user = await this.storage.get('user');
-
-    
     const post_param = {
       description: post_data.description,
       image: post_data.image,
@@ -67,15 +52,71 @@ export class AddPostModalPage implements OnInit {
 
     console.log(post_param, 'post para enviar');
 
-    
     this.postService.createPost(post_param).then(
       (data: any) => {
         console.log(data, 'post creado');
-        this.modalController.dismiss({ null: null }); 
+        data.user = {
+          id: user.id,
+          name: user.name,
+          image: user.image || 'assets/images/default-avatar.jpeg'
+        };
+        this.postService.postCreated.emit(data);
+        this.addPostForm.reset();
+        this.post_image = null;
+        this.modalController.dismiss();
       },
       (error) => {
-        console.log(error, 'error'); 
+        console.log(error, 'error');
       }
     );
+  }
+
+  async takePhoto(source: CameraSource) {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.DataUrl,
+      source: source,
+    });
+
+    if (image && image.dataUrl) {
+      this.post_image = image.dataUrl;
+      this.addPostForm.patchValue({
+        image: this.post_image,
+      });
+    }
+  }
+
+  async presentPhotoOptions() {
+    const alert = await this.alertController.create({
+      header: "Seleccionar una opción",
+      message: "¿De dónde quieres obtener la imagen?",
+      buttons: [
+        {
+          text: "Cámara",
+          handler: () => {
+            this.takePhoto(CameraSource.Camera); 
+          },
+        },
+        {
+          text: "Galería",
+          handler: () => {
+            this.takePhoto(CameraSource.Photos); 
+          },
+        },
+        {
+          text: "Cancelar",
+          role: "cancel",
+          handler: () => {
+            console.log("Cancelado");
+          },
+        },
+      ],
+    });
+    await alert.present();
+  }
+
+  async dismissModal() {
+    await this.modalController.dismiss(); 
   }
 }

@@ -17,8 +17,8 @@
       <h1>{{ user_data.name }} {{ user_data.last_name }}</h1>
       <p>Usuario: {{ user_data.username }}</p>
       <p>Correo: {{ user_data.email }}</p>
-      <p>Seguidores: {{ user_data.followed_users.length }}</p>
-      <p>Siguiendo: {{ user_data.following_users.length }}</p>
+      <p>Seguidores: {{ user_data.followers.length }}</p>
+      <p>Siguiendo: {{ user_data.followees.length }}</p>
     </ion-card>
     
     
@@ -28,7 +28,7 @@
   
   <div *ngIf="isEditing">
     <ion-card>
-      <ion-avatar class="profile-avatar" (click)="takePhoto()">
+      <ion-avatar class="profile-avatar" (click)="presentPhoOptions()">
         <img [src]="user_data.image ? user_data.image : 'assets/images/default-avatar.jpeg'" />
       </ion-avatar>
       <ion-label>Haz clic en la imagen para cambiar la foto</ion-label>

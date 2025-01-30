@@ -22,7 +22,7 @@
         <h2>{{ user.name }}  {{ user.last_name }}</h2>
       </ion-label>
       <ion-button slot="end" (click)="toogleFollow(user)">
-        <ion-icon [name]="user.is_folloeing ? 'heart-dislike-outline' : 'heart-outline'"></ion-icon>
+        <ion-icon [name]="user.is_following ? 'heart-dislike-outline' : 'heart-outline'"></ion-icon>
       </ion-button>
     </ion-item>
   </ion-list>

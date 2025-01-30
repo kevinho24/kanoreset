@@ -1,23 +1,23 @@
 ion-content {
-    --background: linear-gradient(to bottom, #ff6f00, #ff9f00); /* Fondo degradado */
+    --background: linear-gradient(to bottom, #ff6f00, #ff9f00); 
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    color: #ffffff; /* Color del texto */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra del texto */
-    animation: backgroundAnimation 10s infinite alternate; /* Animación de fondo */
+    color: #ffffff; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
+    animation: backgroundAnimation 10s infinite alternate; 
 }
 
 ion-item {
-    --background: #ffffff; /* Fondo blanco para los campos */
-    --border-color: #000000; /* Bordes negros */
-    --border-width: 2px; /* Grosor del borde */
-    --border-radius: 10px; /* Bordes redondeados */
-    margin-bottom: 20px; /* Espaciado entre campos */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+    --background: #ffffff; 
+    --border-color: #000000; 
+    --border-width: 2px; 
+    --border-radius: 10px; 
+    margin-bottom: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -35,44 +35,44 @@ ion-item {
 }
 
 ion-item:focus-within {
-    transform: scale(1.02); /* Efecto de escala al interactuar */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Incremento de sombra */
+    transform: scale(1.02); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
 }
 
 ion-input {
-    --color: #000000; /* Color del texto */
-    --placeholder-color: #777777; /* Color de los placeholders */
-    --padding-start: 10px; /* Espaciado interno */
+    --color: #000000; 
+    --placeholder-color: #777777; 
+    --padding-start: 10px; 
     font-size: 16px;
 }
 
 ion-label[color='danger'] {
-    font-size: 12px; /* Tamaño del texto de error */
+    font-size: 12px; 
     margin-top: -10px;
     margin-bottom: 10px;
-    color: #ff0000; /* Color rojo para los errores */
+    color: #ff0000; 
 }
 
 form {
-    max-width: 400px; /* Limitar el ancho del formulario */
-    margin: 0 auto; /* Centrar el formulario */
+    max-width: 400px; 
+    margin: 0 auto; 
 }
 
 ion-avatar {
     width: 80px;
     height: 80px;
     margin: 20px auto;
-    border: 2px solid #000000; /* Bordes negros */
+    border: 2px solid #000000; 
     border-radius: 50%;
-    overflow: hidden; /* Ajustar la imagen al avatar */
+    overflow: hidden; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 ion-button {
-    --background: #ff6f00; /* Color del botón */
-    --border-radius: 8px; /* Bordes redondeados */
-    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
-    --border-color: #000000; /* Bordes negros */
+    --background: #ff6f00; 
+    --border-radius: 8px; 
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    --border-color: #000000; 
     --border-width: 2px;
     font-weight: bold;
     text-transform: uppercase;
@@ -80,21 +80,27 @@ ion-button {
 }
 
 ion-button:hover {
-    --background: #ff9f00; /* Color más claro al pasar el mouse */
-    transform: translateY(-2px); /* Efecto de elevación */
+    --background: #ff9f00; 
+    transform: translateY(-2px); 
 }
 
 ion-button:focus {
-    outline: 2px solid #000000; /* Añadir borde de enfoque */
+    outline: 2px solid #000000; 
     outline-offset: 2px;
 }
 
 ion-button:active {
-    transform: translateY(1px); /* Efecto de presionado */
+    transform: translateY(1px); 
 }
 
 ion-button:disabled {
-    --background: #cccccc; /* Color para el estado deshabilitado */
-    --box-shadow: none; /* Sin sombra */
+    --background: #cccccc; 
+    --box-shadow: none; 
     opacity: 0.7;
 }
+
+  ion-button {
+    font-weight: bold;
+    --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  

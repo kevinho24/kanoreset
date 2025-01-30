@@ -9,7 +9,7 @@
 
 <ion-content>
   <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)">
-    <!-- Campo Nombre -->
+    
     <ion-item>
       <ion-input
         label="Nombre"
@@ -27,7 +27,7 @@
       </ion-label>
     </ng-container>
 
-    <!-- Campo Apellido -->
+    
     <ion-item>
       <ion-input
         label="Apellido"
@@ -45,7 +45,7 @@
       </ion-label>
     </ng-container>
 
-    <!-- Campo Correo -->
+    
     <ion-item>
       <ion-input
         label="Correo"
@@ -63,7 +63,7 @@
       </ion-label>
     </ng-container>
 
-    <!-- Campo Usuario -->
+    
     <ion-item>
       <ion-input
         label="Usuario"
@@ -81,7 +81,7 @@
       </ion-label>
     </ng-container>
 
-    <!-- Campo Contraseña -->
+    
     <ion-item>
       <ion-input
         type="password"
@@ -100,7 +100,7 @@
       </ion-label>
     </ng-container>
 
-    <!-- Campo Confirmación de Contraseña -->
+    
     <ion-item>
       <ion-input
         type="password"
@@ -119,9 +119,11 @@
       </ion-label>
     </ng-container>
 
-    <!-- Botón de Registro -->
-    <ion-button expand="block" type="submit" [disabled]="!registerForm.valid">
-      Registrar
-    </ion-button>
+    
+    <div class="button-container">
+      <ion-button type="submit">Registrar</ion-button>
+      <ion-button color="medium">Volver al Login</ion-button>
+    </div>
+      
   </form>
 </ion-content>

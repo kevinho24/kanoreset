@@ -66,5 +66,8 @@ export class RegisterPage implements OnInit {
       this.errorMessage = err;
     });
   }
+  goToLogin() {
+    this.navCtrl.navigateBack('/login'); 
+  }
 }
 

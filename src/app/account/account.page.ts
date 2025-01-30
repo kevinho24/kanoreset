@@ -3,7 +3,7 @@ import { UserService } from '../services/user.service';
 import { Storage } from '@ionic/storage-angular';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
-
+import { AlertController } from '@ionic/angular';
 defineCustomElements(window);
 
 @Component({
@@ -19,13 +19,16 @@ export class AccountPage implements OnInit {
     email: '',
     username: '',
     image: '',
-    followed_users: [],
-    following_users: [],
+    followees: [],
+    followers: [],
   };
   originalUserData: any = {};  
   isEditing: boolean = false;
 
-  constructor(private userService: UserService, private storage: Storage) {}
+  constructor(private userService: UserService, 
+    private storage: Storage,
+    public alertController: AlertController
+  ) {}
 
   async ngOnInit() {
     const user: any = await this.storage.get('user');
@@ -58,11 +61,11 @@ export class AccountPage implements OnInit {
     console.log('Modo edición desactivado');
   }
 
-  async takePhoto() {
+  async takePhoto(source: CameraSource) {
     console.log('take photo');
     const capturedPhoto = await Camera.getPhoto({
       resultType: CameraResultType.DataUrl,
-      source: CameraSource.Camera,
+      source: source,
       quality: 100,
     });
     console.log(capturedPhoto.dataUrl);
@@ -85,7 +88,31 @@ export class AccountPage implements OnInit {
         alert('Hubo un error al actualizar el perfil');
       });
   }
+
+async presentPhoOptions() {
+  const alert = await this.alertController.create({
+    header: "Seleccionar una opción",
+    message: "¿De dónde quieres obtener la imagen?",
+    buttons: [
+      {
+        text: "Cámara",
+        handler: () => {
+          this.takePhoto(CameraSource.Camera);
+        },
+      },
+      {
+        text: "Galería",
+        handler: () => {
+          this.takePhoto(CameraSource.Photos);
+        }
+      },
+      {
+        text: "Cancelar",
+        role: 'cancel'
+      }
+    ]
+  });
+
+  await alert.present();
 }
-
-
-
+}
