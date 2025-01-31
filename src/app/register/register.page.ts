@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { NavController } from '@ionic/angular';
 
@@ -11,11 +11,12 @@ import { NavController } from '@ionic/angular';
 })
 export class RegisterPage implements OnInit {
   registerForm: FormGroup;
-  errorMessage: any;
+  errorMessage: string = '';
 
+  
   formErrors = {
     name: [{ type: 'required', message: 'El nombre es obligatorio' }],
-    lastname: [{ type: 'required', message: 'El apellido es obligatorio' }],
+    last_name: [{ type: 'required', message: 'El apellido es obligatorio' }],
     email: [
       { type: 'required', message: 'El correo es obligatorio' },
       { type: 'email', message: 'El correo no es válido' },
@@ -23,7 +24,7 @@ export class RegisterPage implements OnInit {
     username: [{ type: 'required', message: 'El usuario es obligatorio' }],
     password: [
       { type: 'required', message: 'La contraseña es obligatoria' },
-      { type: 'minlength', message: 'La contraseña debe tener al menos 8S caracteres' },
+      { type: 'minlength', message: 'La contraseña debe tener al menos 8 caracteres' },
     ],
     passwordConfirmation: [
       { type: 'required', message: 'Debes confirmar tu contraseña' },
@@ -31,7 +32,8 @@ export class RegisterPage implements OnInit {
     ],
   };
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private formBuilder: FormBuilder,
     private authService: AuthService,
     private navCtrl: NavController
   ) {
@@ -44,30 +46,42 @@ export class RegisterPage implements OnInit {
         password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
         passwordConfirmation: new FormControl('', Validators.required),
       },
-      { validators: this.matchPasswords }
+      { validators: this.matchPasswords } 
     );
   }
 
   ngOnInit() {}
 
-
-  private matchPasswords(group: FormGroup) {
-    const password = group.get('password')?.value;
-    const confirmPassword = group.get('passwordConfirmation')?.value;
+  
+  private matchPasswords(control: AbstractControl) {
+    const password = control.get('password')?.value;
+    const confirmPassword = control.get('passwordConfirmation')?.value;
     return password === confirmPassword ? null : { mismatch: true };
   }
+
+  
   registerUser(registerData: any) {
-    this.authService.register(registerData).then((res) => {
-      console.log(res);
-      this.errorMessage = '';
-      this.navCtrl.navigateForward('/login');
-    }).catch((err) => {
-      console.log(err);
-      this.errorMessage = err;
-    });
+    if (this.registerForm.valid) {
+      this.authService
+        .register(registerData)
+        .then((res) => {
+          console.log(res);
+          this.errorMessage = '';
+          this.navCtrl.navigateForward('/login'); 
+        })
+        .catch((err) => {
+          console.error(err);
+          this.errorMessage = 'Error al registrarse. Por favor, intente nuevamente.';
+        });
+    } else {
+      this.errorMessage = 'Por favor, complete todos los campos correctamente.';
+    }
   }
+
+  
   goToLogin() {
-    this.navCtrl.navigateBack('/login'); 
+    this.navCtrl.navigateBack('/login');
   }
 }
+
 

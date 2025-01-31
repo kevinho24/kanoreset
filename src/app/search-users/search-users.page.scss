@@ -1,10 +1,10 @@
 ion-content {
-    --background: #f7f7f7;
+    --background: #ffe8cc; /* Color pastel suave (naranja claro) */
     padding: 10px;
 }
 
 ion-toolbar {
-    --background: #ff6f00; /* Naranja */
+    --background: #ffdfba; /* Naranja pastel más suave */
     --color: #ffffff; /* Blanco */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -26,7 +26,7 @@ ion-avatar {
     height: 50px;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid #ff6f00;
+    border: 2px solid #ffdfba; /* Naranja pastel suave */
 }
 
 ion-avatar img {
@@ -36,7 +36,7 @@ ion-avatar img {
 }
 
 ion-label h2 {
-    color: #333333;
+    color: #555555; /* Gris suave */
     font-size: 16px;
     font-weight: bold;
     margin: 0;
@@ -45,14 +45,14 @@ ion-label h2 {
 
 ion-button {
     --background: transparent;
-    --color: #ff6f00; /* Naranja */
-    border: 2px solid #ff6f00;
+    --color: #ff9f1c; /* Naranja pastel */
+    border: 2px solid #ff9f1c;
     border-radius: 50%;
     padding: 5px;
 }
 
 ion-button:hover {
-    background-color: #ff6f00;
+    background-color: #ff9f1c; /* Naranja pastel más fuerte */
     color: #ffffff;
 }
 
@@ -67,10 +67,11 @@ ion-button:hover ion-icon {
 
 ion-searchbar {
     --background: #ffffff;
-    --color: #333333;
+    --color: #555555; /* Gris suave */
     --placeholder-color: #888888;
     --border-radius: 25px;
     --padding-start: 15px;
     --padding-end: 15px;
     margin-bottom: 15px;
 }
+

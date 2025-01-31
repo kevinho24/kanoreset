@@ -1,7 +1,10 @@
 <ion-header>
   <ion-toolbar>
+    
     <ion-buttons slot="start">
-      <ion-icon name="restaurant-outline"></ion-icon>
+      <ion-button (click)="goToLogin()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
     <ion-title>Registro</ion-title>
   </ion-toolbar>
@@ -36,16 +39,16 @@
         formControlName="last_name"
       ></ion-input>
     </ion-item>
-    <ng-container *ngFor="let error of formErrors.lastname">
+    <ng-container *ngFor="let error of formErrors.last_name">
       <ion-label
         color="danger"
-        *ngIf="registerForm.get('lastname')?.hasError(error.type) && registerForm.get('lastname')?.dirty"
+        *ngIf="registerForm.get('last_name')?.hasError(error.type) && registerForm.get('last_name')?.dirty"
       >
         {{ error.message }}
       </ion-label>
     </ng-container>
 
-    
+   
     <ion-item>
       <ion-input
         label="Correo"
@@ -100,7 +103,7 @@
       </ion-label>
     </ng-container>
 
-    
+   
     <ion-item>
       <ion-input
         type="password"
@@ -113,17 +116,20 @@
     <ng-container *ngFor="let error of formErrors.passwordConfirmation">
       <ion-label
         color="danger"
-        *ngIf="registerForm.get('passwordConfirmation')?.hasError(error.type) && registerForm.get('passwordConfirmation')?.dirty"
+        *ngIf="
+          registerForm.get('passwordConfirmation')?.hasError(error.type) &&
+          registerForm.get('passwordConfirmation')?.dirty
+        "
       >
         {{ error.message }}
       </ion-label>
     </ng-container>
 
-    
+   
     <div class="button-container">
-      <ion-button type="submit">Registrar</ion-button>
-      <ion-button color="medium">Volver al Login</ion-button>
+      <ion-button type="submit" expand="block">Registrar</ion-button>
+      <ion-button color="medium" expand="block" (click)="goToLogin()">Volver al Login</ion-button>
     </div>
-      
   </form>
 </ion-content>
+

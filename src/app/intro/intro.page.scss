@@ -14,13 +14,13 @@
   position: relative;
   overflow: hidden;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, transform 0.3s ease;
-  background-color: #ff6f00;
+  background-color: #ffe8cc; 
 }
 
 .slide-1, .slide-2, .slide-3, .slide-4 {
-  background: #ff6f00;
+  background: #ffe8cc; 
 }
 
 .slide-image {
@@ -28,7 +28,7 @@
   height: 250px;
   object-fit: cover;
   border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.4s ease-out;
   margin-bottom: 15px;
 }
@@ -52,23 +52,23 @@
 
 .slide-icon-click {
   position: absolute;
-  top: 15px; /* Espaciado desde la parte superior */
-  right: 15px; /* Espaciado desde la parte derecha */
+  top: 15px; 
+  right: 15px; 
   font-size: 24px;
-  color: #000;
+  color: #6a5c4b; 
   cursor: pointer;
   z-index: 10;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .slide-icon-click:hover {
-  color: #ff9f00;
+  color: #ff9f00; 
   transform: scale(1.2);
 }
 
 .slide-button {
-  margin-top: 20px; /* Ubicación original debajo del contenido */
-  background: #ff9f00;
+  margin-top: 20px; 
+  background: #ffb3a6; 
   color: #fff;
   font-size: 14px;
   font-weight: bold;
@@ -76,11 +76,12 @@
   padding: 8px 15px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .slide-button:hover {
-  background-color: #ffa733;
+  background-color: #ffab91; 
   transform: scale(1.05);
 }
+

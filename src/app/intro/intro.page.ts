@@ -17,11 +17,13 @@ export class IntroPage implements OnInit {
   ngOnInit() {
   }
 
-  finish() {
-    console.log('Finish');
-    this.storage.set('introShown', true); 
-    this.router.navigateByUrl('/menu/home'); 
-  }
+finish() {
+  console.log('Finish');
+  this.storage.set('introShown', true); 
+  this.router.navigateByUrl('/menu/home'); 
+}
+
+
   
   
 }
